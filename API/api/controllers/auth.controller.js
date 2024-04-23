@@ -1,6 +1,7 @@
 // Importamos los modelos de usuario y contacto
 const User = require('../models/user.model');
 
+
 // Importamos las librerías para manejar tokens y cifrado de contraseñas
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -29,7 +30,6 @@ const signUp = async (req, res) => {
       password: req.body.password,
       name: req.body.name
     });
-
 
     // Creamos el payload del token, incluyendo el email del usuario
     const payload = { email: req.body.email };
