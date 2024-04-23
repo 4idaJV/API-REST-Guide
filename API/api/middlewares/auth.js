@@ -39,7 +39,7 @@ function checkAuth(req, res, next) {
 }
 
 function checkAdmin(req, res, next) {
-  if (res.locals.user.role !== 'admin') {
+  if (res.locals.user.role !== 'user') {
     return res.status(401).json('Admins only')
   }
   else {

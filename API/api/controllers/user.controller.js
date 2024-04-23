@@ -30,6 +30,9 @@ async function createUser(req, res) {
   try {
     const user = await User.create({
       name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      role: req.body.role,
     })
     return res.status(200).json({ message: 'User created', user: user })
   } catch (error) {
