@@ -3,6 +3,7 @@ const router = require('express').Router();
 
 // Usamos el enrutador para manejar todas las peticiones dirigidas a '/user' usando el enrutador definido en 'user.router'.
 router.use('/user', require('./user.router'))
+router.use('/recipe', require('./recipe.router'))
 router.use('/auth', require('./auth.router.js'))
 router.use('/ingredient', require('./ingredient.router'))
 

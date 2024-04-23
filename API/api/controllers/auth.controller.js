@@ -30,7 +30,7 @@ const signUp = async (req, res) => {
       password: req.body.password,
       name: req.body.name
     });
-    
+
     // Creamos el payload del token, incluyendo el email del usuario
     const payload = { email: req.body.email };
     // Firmamos el token con una clave secreta y establecemos un tiempo de expiración
