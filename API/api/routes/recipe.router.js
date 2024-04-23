@@ -4,6 +4,6 @@ const{ getAllRecipe,getOneRecipe,createRecipe,deleteRecipe} = require('../contro
 router.get('/',getAllRecipe);
 router.get('/:id',getOneRecipe);
 router.post('/',createRecipe);
-router.delete('/',deleteRecipe);
+router.delete('/:id',deleteRecipe);
 
 module.exports = router
