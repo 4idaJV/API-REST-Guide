@@ -5,6 +5,7 @@ const router = require('express').Router();
 router.use('/user', require('./user.router'))
 router.use('/recipe', require('./recipe.router'))
 router.use('/auth', require('./auth.router.js'))
+router.use('/ingredient', require('./ingredient.router'))
 
 // Exportamos el enrutador para que pueda ser utilizado por otros archivos en nuestra aplicación.
 module.exports = router;
