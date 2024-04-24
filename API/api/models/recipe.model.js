@@ -8,7 +8,8 @@ const { connection } = require('../../database/index');
 const Recipe = connection.define('recipe', {
   // Definimos una columna 'name' para almacenar el nombre del usuario
   title: {
-    type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
+    type: DataTypes.STRING, // Establece el tipo de dato como cadena de texto
+    allowNull: false,
   },
   description: {
     type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
@@ -26,7 +27,8 @@ const Recipe = connection.define('recipe', {
     type : DataTypes.INTEGER
   },
   menuSetTime: {
-    type : DataTypes.INTEGER
+    type : DataTypes.STRING,
+    allowNull: false,
   },
   img_url: {
     type : DataTypes.STRING

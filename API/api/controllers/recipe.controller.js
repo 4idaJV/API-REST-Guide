@@ -29,6 +29,7 @@ async function getAllRecipe(req, res) {
   
   async function createRecipe(req, res) {
     try {
+
       const recipe = await Recipe.create(
         {
         title: req.body.title,

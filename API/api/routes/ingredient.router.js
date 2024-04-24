@@ -5,8 +5,8 @@ const { checkAuth, checkAdmin } = require('../middlewares/auth.js')
 
 router.get('/', getAllIngredients)
 router.get('/:id', getOneIngredient)
-router.post('/', /* checkAuth, checkAdmin, */ createIngredient)
-router.put('/:id', /* checkAuth, checkAdmin, */ updateIngredient)
-router.delete('/:id', /* checkAuth, checkAdmin, */ deleteIngredient)
+router.post('/',createIngredient)
+router.put('/:id',updateIngredient)
+router.delete('/:id',deleteIngredient)
 
 module.exports = router
