@@ -5,9 +5,7 @@ const Menu = require('../api/models/menu.model.js')
  
 const initializeRelations = () => {
   try {
-    User.hasMany(Menu)
-    Menu.belongsTo(User)
-
+  
     User.belongsToMany(Recipe,{ through: Menu })
     Recipe.belongsToMany(User,{ through: Menu })
 
