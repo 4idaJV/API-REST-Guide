@@ -8,13 +8,18 @@ const { connection } = require('../../database/index');
 const User = connection.define('user', {
   // Definimos una columna 'name' para almacenar el nombre del usuario
   name: {
-    type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
+    type: DataTypes.STRING, // Establece el tipo de dato como cadena de texto
+    allowNull: false,
+    unique: true,
   },
   email: {
-    type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
+    type: DataTypes.STRING, // Establece el tipo de dato como cadena de texto
+    allowNull: false,
+    unique: true,
   },
   password: {
-    type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
+    type: DataTypes.STRING ,// Establece el tipo de dato como cadena de texto
+    allowNull: false,
   },
   role: {
     type: DataTypes.ENUM('admin', 'user'), // Establece los roles que puede adoptar el usuario en la aplicación

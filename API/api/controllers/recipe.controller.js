@@ -29,16 +29,19 @@ async function getAllRecipe(req, res) {
   
   async function createRecipe(req, res) {
     try {
-      const recipe = await Recipe.create({
+
+      const recipe = await Recipe.create(
+        {
         title: req.body.title,
         description: req.body.description,
         instructions: req.body.instructions,
         cookingTime: req.body.cookingTime,
-        servingTime: req.body.servingTime,
+        servingSize: req.body.servingSize,
+        preparationTime: req.body.preparationTime,
         menuSetTime: req.body.menuSetTime,
         img_url: req.body.img_url,
       })
-      return res.status(200).json({ message: 'Recipe created', user: user })
+      return res.status(200).json({ message: 'Recipe created', recipe: recipe })
     } catch (error) {
       res.status(500).send(error.message)
     }
