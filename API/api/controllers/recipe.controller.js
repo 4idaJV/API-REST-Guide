@@ -12,7 +12,7 @@ async function getAllRecipe(req, res) {
     } catch (error) {
       res.status(500).send(error.message)
     }
-  }
+}
   
   async function getOneRecipe(req, res) {
     try {
@@ -46,6 +46,8 @@ async function getAllRecipe(req, res) {
       res.status(500).send(error.message)
     }
   }
+
+  
   /*
   async function updateRecipe(req, res) {
     try {

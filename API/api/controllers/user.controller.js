@@ -1,4 +1,6 @@
 const User = require('../models/user.model.js')
+const RecipeUser = require('../models/recipe.model.js')
+const Menu = require('../models/menu.model.js')
 
 async function getAllUsers(req, res) {
   try {
@@ -15,7 +17,12 @@ async function getAllUsers(req, res) {
 
 async function getOneUser(req, res) {
   try {
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id, {
+      include:[{
+        model: RecipeUser,
+      }]
+    })
+    
     if (user) {
       return res.status(200).json(user)
     } else {

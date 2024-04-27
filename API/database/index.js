@@ -22,7 +22,7 @@ const syncModels = async () => {
     await connection.sync()
     console.log('Models added')
   } catch (error) {
-    console.log(error)
+    console.log('fallo modelos')
   }
 }
 

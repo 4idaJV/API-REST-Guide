@@ -4,10 +4,15 @@ const { connection } = require('../../database/index');
 
 const Menu = connection.define('menu', {
 
-    menu_name: {
-        type : DataTypes.STRING
-    }
-
-})
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      }
+    },
+      {
+        timestamps: false, 
+}    
+)
 
 module.exports = Menu;
