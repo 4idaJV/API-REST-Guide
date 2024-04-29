@@ -8,6 +8,7 @@ router.use('/auth', require('./auth.router.js'))
 router.use('/ingredient', require('./ingredient.router.js'))
 router.use('/menu', require('./menu.router.js'))
 router.use('/recipeUser', require('./recipeUser.router.js'))
+router.use('/RecipeIngredient', require('./Recipe_ingridient.router.js'))
 
 // Exportamos el enrutador para que pueda ser utilizado por otros archivos en nuestra aplicación.
 module.exports = router;

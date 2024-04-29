@@ -32,6 +32,18 @@ const RecipeUser = connection.define('recipeUser', {
   img_url: {
     type : DataTypes.STRING
   },
+  alergenos: {
+    type: DataTypes.STRING,
+    validate: {
+      isIn: [['lacteos', 'gluten', 'huevo','frutoSecos']]
+    }  
+  },
+  regimen: {
+    type: DataTypes.STRING,
+    validate: {
+      isIn: [['vegetariano', 'vegano', 'Omnivoro']]
+    } 
+  }, 
 },
   {
     // Configuración adicional para el modelo

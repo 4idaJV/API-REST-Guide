@@ -2,6 +2,7 @@ const Menu = require('../models/menu.model')
 
 
 async function createSavedRecipe(req, res) {
+  
     const { userId, recipeId } = req.body;
     try {
       const menu = await Menu.create(

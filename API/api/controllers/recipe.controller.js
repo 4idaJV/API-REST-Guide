@@ -1,9 +1,14 @@
 const Recipe = require('../models/recipe.model.js')
-
+const Ingredient = require('../models/ingredient.model.js')
 
 async function getAllRecipe(req, res) {
     try {
-      const recipe = await Recipe.findAll({ paranoid: false })
+      const recipe = await Recipe.findAll({ 
+        paranoid: false,
+        include:[{
+          model: Ingredient,
+        }]
+       })
       if (recipe) {
         return res.status(200).json(recipe)
       } else {
@@ -40,6 +45,8 @@ async function getAllRecipe(req, res) {
         preparationTime: req.body.preparationTime,
         menuSetTime: req.body.menuSetTime,
         img_url: req.body.img_url,
+        alergenos: req.body.alergenos,
+        regimen: req.body.regimen
       })
       return res.status(200).json({ message: 'Recipe created', recipe: recipe })
     } catch (error) {

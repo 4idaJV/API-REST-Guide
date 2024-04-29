@@ -5,7 +5,12 @@ const { connection } = require('../../database/index');
 const Ingredient = connection.define('ingredient', {
  
   name: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull:false
+  },
+  price: {
+    type: DataTypes.INTEGER,
+    allowNull:false
   },
 },
   {

@@ -15,7 +15,9 @@ async function createRecipeUser(req, res) {
         preparationTime: req.body.preparationTime,
         menuSetTime: req.body.menuSetTime,
         img_url: req.body.img_url,
-        userId: req.body.userId
+        userId: req.body.userId,
+        alergenos: req.body.alergenos,
+        regimen: req.body.regimen
       })
       return res.status(200).json({ message: 'Recipe created', recipe: recipe })
     } catch (error) {
@@ -41,4 +43,18 @@ async function createRecipeUser(req, res) {
     }
   }
 
-  module.exports = {createRecipeUser,getAllRecipeUser}
+  async function AllRecipeUser(req, res) {
+    try {
+      const user = await RecipeUser.findAll({ paranoid: false })
+
+      if (user) {
+        return res.status(200).json(user)
+      } else {
+        return res.status(404).send('No se encontraron recetas')
+      }
+    } catch (error) {
+      res.status(500).send(error.message)
+    }
+  }
+
+  module.exports = {createRecipeUser,getAllRecipeUser,AllRecipeUser}
