@@ -3,10 +3,13 @@ const Menu = require('../models/menu.model')
 
 async function createSavedRecipe(req, res) {
   
-    const { userId, recipeId } = req.body;
     try {
+      console.log('req')
       const menu = await Menu.create(
-        { userId,recipeId}
+        {
+          userId:req.body.userId,
+          recipeId:req.body.userId
+      }
     );
       return res.status(201).json(menu); // Devuelve la receta guardada
     } catch (error) {

@@ -10,7 +10,6 @@ const initializeRelations = () => {
     User.hasMany(RecipeUser)
     RecipeUser.belongsTo(User)
 
-
     User.belongsToMany(Recipe,{ through: Menu });
     Recipe.belongsToMany(User,{ through: Menu });
 

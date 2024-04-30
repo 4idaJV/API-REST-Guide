@@ -1,5 +1,6 @@
 const Recipe = require('../models/recipe.model.js')
 const Ingredient = require('../models/ingredient.model.js')
+const User = require('../models/user.model.js')
 
 async function getAllRecipe(req, res) {
     try {
@@ -18,20 +19,26 @@ async function getAllRecipe(req, res) {
       res.status(500).send(error.message)
     }
 }
-  
-  async function getOneRecipe(req, res) {
-    try {
-      const recipe = await Recipe.findByPk(req.params.id)
-      if (recipe) {
-        return res.status(200).json(recipe)
-      } else {
-        return res.status(404).send('Recipe not found')
-      }
-    } catch (error) {
-      res.status(500).send(error.message)
+
+async function getAllRecetas(req, res) {
+  try {
+    const user = await User.findByPk(req.params.id, {
+      include:[{
+        model: Recipe,
+      }]
+    })
+
+    if (user) {
+      return res.status(200).json(user)
+    } else {
+      return res.status(404).send('No se encontraron recetas')
     }
+  } catch (error) {
+    res.status(500).send(error.message)
   }
+}
   
+
   async function createRecipe(req, res) {
     try {
 
@@ -93,7 +100,7 @@ async function getAllRecipe(req, res) {
 
   module.exports = {
     getAllRecipe,
-    getOneRecipe,
     createRecipe,
     deleteRecipe,
+    getAllRecetas
   }

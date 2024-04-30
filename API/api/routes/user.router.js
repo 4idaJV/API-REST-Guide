@@ -3,7 +3,7 @@ const { getAllUsers, getOneUser, createUser, updateUser, deleteUser } = require(
 const { checkAuth, checkAdmin } = require('../middlewares/auth.js')
 
 // Añadimos nuestro middleware antes de que se ejecute nuestro controlador, si todo va bien podremos acceder a nuestro recurso, em caso contrario no nos dejará
-router.get('/',getAllUsers)//,checkAuth,checkAdmin
+router.get('/',getAllUsers)//,
 router.get('/:id', getOneUser)
 router.post('/',checkAuth,createUser)
 router.put('/:id',checkAuth, updateUser)
