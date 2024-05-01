@@ -2,7 +2,8 @@ const {DataTypes} = require('sequelize');
 const { connection } = require('../../database/index');
 
 
-const Menu = connection.define('menu', {
+
+const Recipe_ingridient = connection.define('RecipeIngredient', {
 
     id: {
         type: DataTypes.INTEGER,
@@ -15,4 +16,4 @@ const Menu = connection.define('menu', {
 }    
 )
 
-module.exports = Menu;
+module.exports = Recipe_ingridient;

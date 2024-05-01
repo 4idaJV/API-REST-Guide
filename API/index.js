@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
+
 const {
   connection,
   checkDb,
@@ -42,5 +43,6 @@ const startApi = async () => {
     console.log(error)
   }
 }
+
 
 startApi()

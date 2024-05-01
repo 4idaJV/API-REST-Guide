@@ -1,4 +1,7 @@
 const User = require('../models/user.model.js')
+const RecipeUser = require('../models/recipe.model.js')
+const Menu = require('../models/menu.model.js')
+const Recipe = require('../models/recipe.model.js')
 
 async function getAllUsers(req, res) {
   try {
@@ -15,16 +18,22 @@ async function getAllUsers(req, res) {
 
 async function getOneUser(req, res) {
   try {
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id, {
+      include:[{
+        model: Recipe,
+      }]
+    })
     if (user) {
       return res.status(200).json(user)
     } else {
-      return res.status(404).send('User not found')
+      return res.status(404).send('problemo traer recetas favoritas')
     }
   } catch (error) {
     res.status(500).send(error.message)
   }
 }
+
+
 
 async function createUser(req, res) {
   try {

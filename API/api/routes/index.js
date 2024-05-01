@@ -2,10 +2,13 @@
 const router = require('express').Router();
 
 // Usamos el enrutador para manejar todas las peticiones dirigidas a '/user' usando el enrutador definido en 'user.router'.
-router.use('/user', require('./user.router'))
-router.use('/recipe', require('./recipe.router'))
+router.use('/user', require('./user.router.js'))
+router.use('/recipe', require('./recipe.router.js'))
 router.use('/auth', require('./auth.router.js'))
-router.use('/ingredient', require('./ingredient.router'))
+router.use('/ingredient', require('./ingredient.router.js'))
+router.use('/menu', require('./menu.router.js'))
+router.use('/recipeUser', require('./recipeUser.router.js'))
+router.use('/RecipeIngredient', require('./Recipe_ingridient.router.js'))
 
 // Exportamos el enrutador para que pueda ser utilizado por otros archivos en nuestra aplicación.
 module.exports = router;
