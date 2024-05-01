@@ -7,11 +7,13 @@ const Recipe_ingridient = require('../api/models/recipe-ingridient.model.js')
  
 const initializeRelations = () => {
   try {
+
     User.hasMany(RecipeUser)
     RecipeUser.belongsTo(User)
 
     User.belongsToMany(Recipe,{ through: Menu });
     Recipe.belongsToMany(User,{ through: Menu });
+
 
     Recipe.belongsToMany(Ingredient,{ through: Recipe_ingridient })
     Ingredient.belongsToMany(Recipe,{ through: Recipe_ingridient })
