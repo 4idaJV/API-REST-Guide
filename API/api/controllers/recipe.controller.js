@@ -1,6 +1,7 @@
 const Recipe = require('../models/recipe.model.js')
 const Ingredient = require('../models/ingredient.model.js')
 const User = require('../models/user.model.js')
+const ingredient = require('../models/ingredient.model.js')
 
 async function getAllRecipe(req, res) {
     try {
@@ -63,8 +64,11 @@ async function getAllRecetas(req, res) {
 
   async function getOneRecipe(req, res) {
     try {
-      const recipe = await Recipe.findByPk(req.params.id)
-  
+      const recipe = await Recipe.findByPk(req.params.id, {
+        include:[{
+          model: ingredient,
+        }]})
+      
       if (recipe) {
         return res.status(200).json(recipe)
       } else {
