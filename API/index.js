@@ -44,6 +44,5 @@ const startApi = async () => {
   }
 }
 
-console.log("a")
 
 startApi()

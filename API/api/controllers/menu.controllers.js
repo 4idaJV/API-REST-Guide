@@ -8,7 +8,7 @@ async function createSavedRecipe(req, res) {
       const menu = await Menu.create(
         {
           userId:req.body.userId,
-          recipeId:req.body.userId
+          recipeId:req.body.recipeId
       }
     );
       return res.status(201).json(menu); // Devuelve la receta guardada
