@@ -15,7 +15,7 @@ const Recipe = connection.define('recipe', {
     type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
   },
   instructions: {
-    type: DataTypes.STRING // Establece el tipo de dato como cadena de texto
+    type: DataTypes.TEXT // Establece el tipo de dato como cadena de texto
   },
   cookingTime: {
     type : DataTypes.INTEGER
@@ -36,7 +36,7 @@ const Recipe = connection.define('recipe', {
   alergenos: {
     type: DataTypes.STRING,
     validate: {
-      isIn: [['lacteos', 'gluten', 'huevo','frutoSecos']]
+      isIn: [['lacteos', 'gluten', 'huevo','frutoSecos',""]]
     }  
   },
   regimen: {
