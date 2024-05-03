@@ -25,6 +25,7 @@ const User = connection.define('user', {
     type: DataTypes.ENUM('admin', 'user'), // Establece los roles que puede adoptar el usuario en la aplicación
     defaultValue: 'user' // Por defecto ponemos el valor 'user'
   }
+  
 },
   {
     // Configuración adicional para el modelo
