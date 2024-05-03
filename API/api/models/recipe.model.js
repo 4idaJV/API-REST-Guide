@@ -1,7 +1,7 @@
 // Importamos DataTypes desde el módulo sequelize para definir tipos de columnas en la base de datos
 const { DataTypes } = require('sequelize');
 
-// Importamos el objeto connection desde una ruta relativa, que maneja la conexión con nuestra base de datos
+// Importamos el objeto connection desde una ruta relativa, que maneja la conexión con nuestra base de da>>>>>>> maintos
 const { connection } = require('../../database/index');
 
 // Definimos un modelo 'User' usando el objeto connection que se refiere a la tabla 'user' en la base de datos
@@ -36,7 +36,9 @@ const Recipe = connection.define('recipe', {
   alergenos: {
     type: DataTypes.STRING,
     validate: {
+
       isIn: [['lacteos', 'gluten', 'huevo','frutoSecos','']]
+
     }  
   },
   regimen: {
